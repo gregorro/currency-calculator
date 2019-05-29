@@ -1,0 +1,24 @@
+<div>
+  <mat-form-field>
+    <mat-label>Wybierz walute wyjściową</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let currency of allCurrency" [value]="currency.value">
+        {{currency.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Wybierz walute końcowa</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let currency of allCurrency" [value]="currency.value">
+        {{currency.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <form class="change-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Kwota wyjściowa">
+    </mat-form-field>
+  </form>
+  <p>Wartość po przeliczeniu - {{value}}</p>
+</div>

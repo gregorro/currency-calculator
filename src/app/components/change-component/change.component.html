@@ -1,24 +1,46 @@
-<div>
-  <mat-form-field>
-    <mat-label>Wybierz walute wyjściową</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let currency of allCurrency" [value]="currency.value">
-        {{currency.value}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Wybierz walute końcowa</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let currency of allCurrency" [value]="currency.value">
-        {{currency.value}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <form class="change-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Kwota wyjściowa">
-    </mat-form-field>
-  </form>
-  <p>Wartość po przeliczeniu - {{value}}</p>
+<div #content class="main-invisible">
+    <h1>Wypełnij poniższe pola </h1>
+    <div class="row">
+      <mat-form-field class="col-12 col-md-6">
+        <mat-label>Wybierz walute wejściową</mat-label>
+        <mat-select [formControl]="entryCurrency" required>
+          <mat-option *ngFor="let currency of allCurrency" [value]="currency.value">
+            <img src="{{currency.src}}">
+            {{currency.value}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="entryCurrency.hasError('required')">Wybranie opcji jest <b>wymagane!</b></mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-12 col-md-6">
+        <mat-label>Wybierz walute wynikową</mat-label>
+        <mat-select [formControl]="departureCurrency" required>
+          <mat-option *ngFor="let currency of allCurrency" [value]="currency.value">
+            <img src="{{currency.src}}">
+            {{currency.value}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="departureCurrency.hasError('required')">Wybranie opcji jest <b>wymagane!</b></mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="row">
+      <mat-form-field class="col-12 col-md-8 center">
+        <input matInput placeholder="Kwota wejściowa" [formControl]="entryAmount" required>
+        <mat-error *ngIf="entryAmount.hasError('required')">Wprowadzenie wartości jest <b>wymagane!</b></mat-error>
+        <mat-error *ngIf="entryAmount.hasError('pattern')">Proszę podać poprawną liczbę symbolizującą kwotę!</mat-error>
+        <mat-error *ngIf="entryAmount.hasError('min')">Liczba musi być dodatnia!</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+        <div>
+            <button [matTooltipDisabled]="isValid()"
+            matTooltip="Nie można przeliczyć wartości dopóki formularz nie zostanie poprawnie wypełniony."
+            [ngClass]="{'btn': true, 'btn-danger': !isValid(), 'btn-success': isValid()}" (click)="convert()"
+            type="button">Konwertuj</button>
+        </div>
+    </div>
+    <div class="row">
+        <h2><b>{{response}}</b></h2>
+    </div>
 </div>

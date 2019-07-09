@@ -1,11 +1,14 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1 class="alert-success">
-    Witaj w kalkulatorze walut!
-  </h1>
+<div class="container">
+  <div class="fixed-top">
+    <header>
+      <img class="rounded" src="./../assets/calculator-icon.png" alt="Kalkulator">
+      <p>Kalkulator walut</p>
+    </header>
+  </div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="fixed-bottom">
+    <p>Copyright © 2019 - Wszelkie prawa zastrzeżone</p>
+  </footer>
 </div>
-<a  [routerLink]="['/autor']">Informacje o autorze</a>
-<a  [routerLink]="['/zamien']">Przelicz waluty</a>
-
-<router-outlet></router-outlet>
-

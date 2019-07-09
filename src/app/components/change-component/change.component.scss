@@ -1,0 +1,35 @@
+mat-form-field {width: 250px; font-size: 120%};
+img {height: 20px; padding-right:10px ;}
+h1 {text-align: center; color: white;}
+button {float: right;}
+input, h2 {color:white;}
+
+.center {margin: 0 auto;}
+.main-invisible {opacity: 0;}
+
+div.row > div {
+  position: relative;
+  width: 100%;
+}
+
+div.row > h2 {
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 80px;
+}
+
+div.row {
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  mat-form-field{font-size: 80%;}
+  h1 {font-size: 150%;}
+  h2 {font-size: 120%; margin-left: 5px; margin-right: 5px;}
+  h1 {margin-bottom: 50px;}
+  button{ position: relative; right: 20px;}
+}
+
+

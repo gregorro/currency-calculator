@@ -1,0 +1,54 @@
+$thema-color: rgba(7, 179, 249, 0.3);
+$text-color:white;
+
+h1,h2,h3,p {color: $text-color}
+a {text-decoration: none; color: $text-color; transition: 0.3s;}
+a:hover {color:#9fda53; }
+
+img {width: 20px; height: auto;}
+main {padding-top: 100px;}
+p, img {display: inline-block;}
+main, nav {text-align: center;}
+
+header {
+  background-color: $thema-color;
+  padding: 5px 0 0 10px;
+  p {
+    padding: 5px 0 0 10px;
+    margin-bottom: 10px
+  }
+  img {
+    padding: 0 0 5px 0;
+  }
+}
+
+nav {
+  float: right;
+  padding: 5px 20px 0 0;
+  a:first-child  {
+    padding-right: 20px;
+  }
+
+}
+
+footer {
+  background-color: $thema-color;
+  padding: 15px 0 15px 30px;
+  p {
+    margin: 0;
+  }
+  p.float-right {
+    padding-right: 30px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  p, a {font-size: 80%; }
+  nav {padding-top: 0;}
+  footer p {padding-top: 5px;}
+
+}
+
+@media only screen and (max-width: 450px) {
+  p, a {font-size: 70%}
+}
